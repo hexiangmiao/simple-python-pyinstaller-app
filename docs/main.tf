@@ -21,7 +21,7 @@ resource "docker_volume" "jenkins_docker_certs" {
   name = "jenkins-docker-certs"
 }
 
-resource "docker_container" "jenkins" {
+resource "docker_container" "jenkins_blueocean" {
   name  = "jenkins-blueocean"
   image = "myjenkins-blueocean"
   restart = "on-failure"

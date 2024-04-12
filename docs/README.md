@@ -25,9 +25,9 @@ Antes de realizar nada, será necesario:
 ## 1. Creación de la imagen de Jenkins
 Para crear la imagen de Jenkins, será necesario acceder desde la terminal al directorio donde hayas puesto el Dockerfile que se encuentra en el directorio ` docs ` del repositorio e introducir el siguiente comando: 
 ```bash
-docker build -t <nombre_de_la_imagen> .
+docker build -t myjenkins-blueocean .
 ``` 
-Donde `<nombre_de_la_imagen>` es el nombre que quieras darle a la imagen.
+Es importante ponerle exactamente ese nombre y no otro, puesto que es el nombre que usará el archivo de configuración de Terraform para crear el contenedor.
 
 ## 2. Creación de la infraestructura con Terraform
 A continuación crearemos la infraestructura necesaria para ejecutar la aplicación, que consta de:
@@ -37,4 +37,14 @@ A continuación crearemos la infraestructura necesaria para ejecutar la aplicaci
 - Un contenedor de Docker in Docker necesario para Jenkins.
 
 - Una red de Docker llamada jenkins para comunicar ambos contenedores.
+
 - Un par de volúmenes, uno para los datos de Jenkins y otro para los certificados TLS.
+
+Crearemos la infraestructura utilizando terraform, realizando los siguientes pasos:
+
+1. Nos situamos desde una terminal en el directorio donde hayamos puesto el archivo `main.tf` y ejecutamos: `terraform init`.
+2. Una vez terraform se ha inicializado correctamente ejecutamos `terraform apply` y confirmamos escribiendo `yes`.
+
+Con esto la infraestructura se habría creado correctamente y ya estariamos listos para configurar Jenkins.
+
+## 3. Configuración de Jenkins
