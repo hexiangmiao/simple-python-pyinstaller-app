@@ -48,3 +48,18 @@ Crearemos la infraestructura utilizando terraform, realizando los siguientes pas
 Con esto la infraestructura se habría creado correctamente y ya estariamos listos para configurar Jenkins.
 
 ## 3. Configuración de Jenkins
+
+Ahora procederemos a configurar jenkins:
+
+1. Accedemos a Jenkins en [localhost:8080](localhost:8080).
+2. Nos pedirá que introduzcamos la contraseña de administrador, para ello ejecutamos en nuestra terminal `docker logs jenkins-blueocean`. Nos aparecerán los logs del contenedor de jenkins, encontraremos nuestra contraseña a continuación del texto que dice:
+```bash
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+<contraseña>
+```
+3. Una vez hemos introducido la contraseña, seleccionamos la opción 'Install suggested plugins' y esperamos a que se instalen.
+4. Al terminar la instalación de los plugins, nos pedirá que creemos nuestro primer usuario administrador, así que introducimos el usuario y contraseña que queramos, así como un nombre y un correo electrónico.
+
+Con esto habríamos terminado de configurar Jenkins.
